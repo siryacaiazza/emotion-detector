@@ -5,7 +5,7 @@ An accurate emotion detector for .wav audio files using both state-of-the-arts R
 
 [Project Description](#project-description) [Setup](#setup) [Data](#data) [Usage](#usage) [Key Functions](#key-functions) [Libraries Used](#libraries-used)
 
-<\div>
+</div>
 
 ## Project Description
 
