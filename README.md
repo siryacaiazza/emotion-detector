@@ -1,4 +1,4 @@
-# 😄 Emotion Detector & CLassifier
+# 😄 Emotion Classifier
 
 <div align="center">
 An accurate emotion detector for .wav audio files using both state-of-the-arts ResNet18 and a costum build CNN.
