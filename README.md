@@ -1,14 +1,11 @@
-# EmotionDetector
+# 😐 Emotion Detector & CLassifier
 
-This project focuses on detecting emotions from audio files using various signal processing techniques and potentially a deep learning model (Torch). The notebook demonstrates data preparation, feature extraction, and visualization of audio data.
+<div align="center">
+An accurate emotion detector for .wav audio files using both state-of-the-arts ResNet18 and a costum build CNN.
 
-## Table of Contents
-- [Project Description](#project-description)
-- [Setup](#setup)
-- [Data](#data)
-- [Usage](#usage)
-- [Key Functions](#key-functions)
-- [Libraries Used](#libraries-used)
+[Project Description](#project-description) [Setup](#setup) [Data](#data) [Usage](#usage) [Key Functions](#key-functions) [Libraries Used](#libraries-used)
+
+<\div>
 
 ## Project Description
 
