@@ -1,9 +1,9 @@
-# 😐 Emotion Detector & CLassifier
+# 😄 Emotion Detector & CLassifier
 
 <div align="center">
 An accurate emotion detector for .wav audio files using both state-of-the-arts ResNet18 and a costum build CNN.
 
-[Project Description](#project-description) [Setup](#setup) [Data](#data) [Usage](#usage) [Key Functions](#key-functions) [Libraries Used](#libraries-used)
+[Features](#features) [Data](#data) [Installation](#installation) [Usage](#usage) [Launching the Dashboard](#dashboard) [Libraries Used](#libraries-used)
 
 </div>
 
