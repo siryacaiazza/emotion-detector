@@ -1,0 +1,10 @@
+pandas==2.2.2
+torch==2.6.0+cu124
+matplotlib==3.10.0
+streamlit==1.46.1
+pyngrok==7.2.12
+soundfile==0.13.1
+librosa==0.11.0
+numpy==2.0.2
+PIL==11.2.1
+seaborn==0.13.2
