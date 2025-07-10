@@ -3,22 +3,26 @@
 <div align="center">
 An accurate emotion detector for .wav audio files using both state-of-the-arts ResNet18 and a costum build CNN.
 
-[🧩Features](#features) ● [📊Data](#data) ● [🛠️Installation](#installation) ● [📝Usage](#usage) ● [🚀Launching the Dashboard](#dashboard) ● [📚Libraries Used](#libraries-used)
+[🧾Project Description](#project_description) ●  [🧩Features](#features) ● [📊Data](#data) ● [🛠️Installation](#installation) ● [📝Usage](#usage) ● [🚀Launching the Dashboard](#dashboard)
 
 </div>
 
-## Project Description
+## 🧾Project Description
 
 The `EmotionDetector.ipynb` notebook is designed to:
 - Process audio files to extract features relevant for emotion detection.
 - Organize audio metadata (emotion, gender) into a pandas DataFrame.
 - Visualize audio waveforms, spectrograms, and Mel-frequency cepstral coefficients (MFCCs).
+- Use the extracted features to train two different models, one using state-of-the-art ResNet18 and one custom built.
+- Test the performance of the models by computing multiple metrics.
+  
+## 🧩Features
 
-## Setup
+
 
 To run this notebook, you will need to have the following libraries installed:
 
-```bash
+
 pip install torch pandas librosa matplotlib seaborn scikit-learn
 ## 🔗 Download Model File
 
