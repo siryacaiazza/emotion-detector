@@ -3,7 +3,7 @@
 <div align="center">
 An accurate emotion detector for .wav audio files using both state-of-the-arts ResNet18 and a costum build CNN.
 
-[🧾Project Description](#project_description) ● [📊Data](#data) ● [🧩Features](#features) ● [🛠️Installation](#installation) ● [🚀Launching the Dashboard](#dashboard)
+[🧾Project Description](#project-description) ● [📊Data](#data) ● [🧩Features](#features) ● [🛠️Installation](#installation) ● [🚀Launching the Dashboard](#launching-the-dashboard)
 
 </div>
 
@@ -47,7 +47,9 @@ Each audio name consists of a 7 part numerical identifier, which indicate the au
 - The models were tested and multiple metrics were computed to assess their performances.
 
 ## 🛠️Installation
+
 ### 📝Prerequisites
+
 - Google account to use Colab
 - Access to Colab's T4 GPU & RAM
 
@@ -67,7 +69,7 @@ This project uses a large model file that cannot be stored on GitHub directly, s
    ```
 All the needed libraries are already imported, if you want to run this code on your local machine instead of Google Colab, the needed libraries are listed in the `requirements.txt` file.
 
-## 🚀 Launching the Dashboard
+## 🚀Launching the Dashboard
 
 You can use the `DashboardEmotion.ipynb` jupiter notebook to launch the already trained models for inference on your .wav files:
 1. ➡️ Download the models from [Google Drive](https://drive.google.com/drive/folders/1ymERLsYVAziu0meQ8aY08ukcASVVTvTR?usp=sharing).
