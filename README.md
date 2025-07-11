@@ -37,7 +37,7 @@ Each audio name consists of a 7 part numerical identifier, which indicate the au
 - The filenames are used to create a dataframe which contains all the information of the audio, alongside its name and the path from which it is retrieved.
 - The labels used for classification are consituted by both the emotion and the gender of the speaker (example: female_fear, male_sad, etc.), for a total of 14 classes.
 - The dataset is then split in train, validation and test. For the train dataset some augmentation (addition of noise and shifting of the audio) are applied.
-- Each audio is then transformed to retrieve its MFCC with a number of 40 MFCCS and 194 time frames.
+- Each audio is then transformed to retrieve its MFCC with a number of 40 MFCC features (coefficients) and 194 time frames.
 ### 🔨Building the models
 - The MFCCs are used to train two convolutional neural networks (CNNs), one based on the pretrained ResNet18 and one custom built.
 - The ResNet18 is modified in order to process 1-channel MFCCS, its fully connected layer is substituted by an identity layer, average pooling is applied in order to keep temporal information and finally a classification layer is added. (NOTE: the Network was deep enough that some dimension were automatically suppressed, so in the forward method before the average pooling dimension are restored)
