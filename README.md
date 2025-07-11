@@ -52,7 +52,7 @@ All the training times refer to Colab's T4 GPU.
 
 ### ➰Training and Testing 
 - For each epoch of the training loop, both train accuracy and loss and validation accuracy and loss were saved and displayed. Earlystopping and dynamic learning rate were implemented to optimize training time and efficiency.
-- The models were tested and multiple metrics were computed to assess their performances, the results are shown in the following table. 
+- The models were tested and multiple metrics were computed to assess their performances, the results of the testing are shown in the following table. 
 
 |  Model   | Accuracy | F1 (weighted) | F1 (macro) | Precision (weighted) | Precision (macro) | Recall (weighted) | Recall (macro) |
 |----------|----------|---------------|------------|----------------------|-------------------|-------------------|----------------|
