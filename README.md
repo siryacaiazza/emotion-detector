@@ -55,10 +55,15 @@ Each audio name consists of a 7 part numerical identifier, which indicate the au
 
 This project uses a large model file that cannot be stored on GitHub directly, so in order to be able to use the files you must:
 
-1. ➡️ Download the files of this Github repository and add them to your Drive.
-2. ➡️ Change path of this line in order to access the files and data where you put them in your Drive:
+1. ➡️ Download the dataset from this [link](https://www.kaggle.com/datasets/uwrfkaggler/ravdess-emotional-speech-audio).
+2. ➡️ Download the files of this Github repository and add them to your Drive, alongside the dataset.
+3. ➡️ Change path of this line in order to access the files and data where you put them in your Drive:
    ```bash
    %cd '/content/drive/MyDrive/Colab Notebooks/ProgettiEsami/ProjectBigImaging'
+   ```
+4. ➡️ Remember to put the Emotion Dataset in the same directory as above or else the code will run into problems because of this line:
+   ```bash
+   root_dir = './Emotions'
    ```
 All the needed libraries are already imported, if you want to run this code on your local machine instead of Google Colab, the needed libraries are listed in the `requirements.txt` file.
 
