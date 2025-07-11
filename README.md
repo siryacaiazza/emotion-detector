@@ -9,7 +9,7 @@ An accurate emotion detector for .wav audio files using both state-of-the-arts R
 
 ## 🧾Project Description
 
-The `EmotionDetector.ipynb` notebook is designed to:
+The `EmotionClassifier.ipynb` notebook is designed to:
 - Process audio files to extract features relevant for emotion detection.
 - Organize audio metadata (emotion, gender) into a pandas DataFrame.
 - Visualize audio waveforms, spectrograms, and Mel-frequency cepstral coefficients (MFCCs).
@@ -42,9 +42,22 @@ Each audio name consists of a 7 part numerical identifier, which indicate the au
 - The MFCCs are used to train two convolutional neural networks (CNNs), one based on the pretrained ResNet18 and one custom built.
 - The ResNet18 is modified in order to process 1-channel MFCCS, its fully connected layer is substituted by an identity layer, average pooling is applied in order to keep temporal information and finally a classification layer is added. (NOTE: the Network was deep enough that some dimension were automatically suppressed, so in the forward method before the average pooling dimension are restored)
 - The custom model consists of 18 layers: the idea behind it was to decompose the MFFC image along 512 neurons and then slowly decrease the number in order for the network to be able to learn which part of the image where the most important in classifying the emotion, before the classifying layer temporal pooling is applied to keep the temporal information.
+
+| Model | Number of parameters | Training time | Training epochs |
+|-------|----------------------|---------------|-----------------|
+| Model ResNet18 | ~11.17M | ~42 minutes | 35 |
+| Model Costum CNN | ~10.87M | ~1 h 16 minutes | 62 |
+
+All the training times refer to Colab's T4 GPU.
+
 ### ➰Training and Testing 
 - For each epoch of the training loop, both train accuracy and loss and validation accuracy and loss were saved and displayed. Earlystopping and dynamic learning rate were implemented to optimize training time and efficiency.
-- The models were tested and multiple metrics were computed to assess their performances.
+- The models were tested and multiple metrics were computed to assess their performances, the results are shown in the following table. 
+
+|  Model   | Accuracy | F1 (weighted) | F1 (macro) | Precision (weighted) | Precision (macro) | Recall (weighted) | Recall (macro) |
+|----------|----------|---------------|------------|----------------------|-------------------|-------------------|----------------|
+| Model ResNet18 | 0.788 | 0.787 | 0.779 | 0.797 | 0.792 | 0.788 | 0.779 |
+| Model Custom CNN | 0.865 | 0.863 | 0.855 | 0.872 | 0.865 | 0.865 | 0.856 | 
 
 ## 🛠️Installation
 
@@ -77,6 +90,6 @@ You can use the `DashboardEmotion.ipynb` jupiter notebook to launch the already 
    - Click on the directory 🗂️ icon on the left.
    - Click on the first icon of the row below "File" (it looks like a paper sheet with and upwards arrow inside).
    - Load the .pth files from your computer (it might take a couple of minutes for them to load completely).
-3. ➡️ Run the code: the last cell will output something similar to <NgrokTunnel: "https://02a3543e7ceb.ngrok-free.app" -> "http://localhost:8501">, click on the first link, proceed to the website and you can use the app!
+3. ➡️ Run the code: the last cell will output something similar to <NgrokTunnel: "https://02a3543e7ceb.ngrok-free.app" -> "http://localhost:8501">, click on the first link, proceed to the website and you can use the app! \[NOTE: these links are not currently working, you must run the notebook to use the dashboard]
 
 
