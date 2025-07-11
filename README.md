@@ -33,16 +33,16 @@ Each audio name consists of a 7 part numerical identifier, which indicate the au
 
 ## 🧩Features
 
-## 🔧Preprocessing of the data
+### 🔧Preprocessing of the data
 - The filenames are used to create a dataframe which contains all the information of the audio, alongside its name and the path from which it is retrieved.
 - The labels used for classification are consituted by both the emotion and the gender of the speaker (example: female_fear, male_sad, etc.), for a total of 14 classes.
 - The dataset is then split in train, validation and test. For the train dataset some augmentation (addition of noise and shifting of the audio) are applied.
 - Each audio is then transformed to retrieve its MFCC with a number of 40 MFCCS and 194 time frames.
-## 🔨Building the models
+### 🔨Building the models
 - The MFCCs are used to train two convolutional neural networks (CNNs), one based on the pretrained ResNet18 and one custom built.
 - The ResNet18 is modified in order to process 1-channel MFCCS, its fully connected layer is substituted by an identity layer, average pooling is applied in order to keep temporal information and finally a classification layer is added. (NOTE: the Network was deep enough that some dimension were automatically suppressed, so in the forward method before the average pooling dimension are restored)
 - The custom model consists of 18 layers: the idea behind it was to decompose the MFFC image along 512 neurons and then slowly decrease the number in order for the network to be able to learn which part of the image where the most important in classifying the emotion, before the classifying layer temporal pooling is applied to keep the temporal information.
-## ➰Training and Testing 
+### ➰Training and Testing 
 - For each epoch of the training loop, both train accuracy and loss and validation accuracy and loss were saved and displayed. Earlystopping and dynamic learning rate were implemented to optimize training time and efficiency.
 - The models were tested and multiple metrics were computed to assess their performances.
 
@@ -67,7 +67,7 @@ This project uses a large model file that cannot be stored on GitHub directly, s
    ```
 All the needed libraries are already imported, if you want to run this code on your local machine instead of Google Colab, the needed libraries are listed in the `requirements.txt` file.
 
-# 🚀 Launching the Dashboard
+## 🚀 Launching the Dashboard
 
 You can use the `DashboardEmotion.ipynb` jupiter notebook to launch the already trained models for inference on your .wav files:
 1. ➡️ Download the models from [Google Drive](https://drive.google.com/drive/folders/1ymERLsYVAziu0meQ8aY08ukcASVVTvTR?usp=sharing).
