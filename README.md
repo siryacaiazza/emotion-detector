@@ -54,13 +54,6 @@ All the training times refer to Colab's T4 GPU.
 - For each epoch of the training loop, both train accuracy and loss and validation accuracy and loss were saved and displayed. Earlystopping and dynamic learning rate were implemented to optimize training time and efficiency.
 - The models were tested and multiple metrics were computed to assess their performances, the results of the testing are shown in the following table.
 
-0.760417     0.755911  0.748039            0.757627   
-Model Custom CNN  0.843750     0.841048  0.835812            0.853661   
-
-                  precision_macro  recall_weighted  recall_macro  
-Model ResNet18           0.751461         0.760417      0.751180  
-Model Custom CNN         0.851995         0.843750      0.835844 
-
 |  Model   | Accuracy | F1 (weighted) | F1 (macro) | Precision (weighted) | Precision (macro) | Recall (weighted) | Recall (macro) |
 |----------|----------|---------------|------------|----------------------|-------------------|-------------------|----------------|
 | Model ResNet18 | 0.760 | 0.755 | 0.748 | 0.757 | 0.751 | 0.760 | 0.751 |
