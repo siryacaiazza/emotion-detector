@@ -1,7 +1,7 @@
 # 😄 Emotion Classifier
 
 <div align="center">
-An accurate emotion detector for .wav audio files using both state-of-the-arts ResNet18 and a costum build CNN.
+An accurate emotion classifier for .wav audio files using both state-of-the-arts ResNet18 and a costum build CNN.
 
 [🧾Project Description](#project-description) ● [📊Data](#data) ● [🧩Features](#features) ● [🛠️Installation](#installation) ● [🚀Launching the Dashboard](#launching-the-dashboard)
 
