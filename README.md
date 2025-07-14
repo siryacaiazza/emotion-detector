@@ -1,9 +1,9 @@
 # 😄 Emotion Classifier
 
 <div align="center">
-An accurate emotion classifier for .wav audio files using both state-of-the-arts ResNet18 and a costum build CNN.
+An accurate emotion classifier for .wav audio files using both state-of-the-arts ResNet18 and a custom build CNN.
 
-[🧾Project Description](#project-description) ● [📊Data](#data) ● [🧩Features](#features) ● [🛠️Installation](#installation) ● [🚀Launching the Dashboard](#launching-the-dashboard)
+[🧾Project Description](#project-description) ● [📊Data](#data) ● [🧩Features](#features) ● [🛠️Installation](#installation) ● [🚀Launching the Dashboard](#dashboard)
 
 </div>
 
@@ -22,7 +22,7 @@ The `EmotionClassifier.ipynb` notebook is designed to:
 
 The data used for this project can be found at this [link](https://www.kaggle.com/datasets/uwrfkaggler/ravdess-emotional-speech-audio).
 The data is retrieved from the RAVDESS dataset, which contains full AV files, video-only and audio-only files, both of speech and song. The portion used contains 1440 files, all speech and audio-only: 24 actors (12 males, 12 females) acted different emotion for a total of 60 times each. Speech emotions include calm, happy, sad, angry, fearful, surprise and disgust. Each phrase is produced at two levels of emotional intensity, normal and strong, except for the neutral emotion.
-Each audio name consists of a 7 part numerical identifier, which indicate the audio's charateristics:
+Each audio name consists of a 7 part numerical identifier, which indicate the audio's characteristics:
 - **Part 1**: Modality (01 = full-AV, 02 = video-only, 03 = audio-only), the files used are all audio-only.
 - **Part 2**: Vocal Channel (01 = speech, 02 = song), the files used are all speech.
 - **Part 3**: Emotion (01 = neutral, 02 = calm, 03 = happy, 04 = sad, 05 = angry, 06 = fearful, 07 = disgust, 08 = surprised).
@@ -35,20 +35,20 @@ Each audio name consists of a 7 part numerical identifier, which indicate the au
 
 ### 🔧Preprocessing of the data
 - The filenames are used to create a dataframe which contains all the information of the audio, alongside its name and the path from which it is retrieved.
-- The labels used for classification are consituted by both the emotion and the gender of the speaker (example: female_fear, male_sad, etc.), for a total of 14 classes.
+- The labels used for classification are constituted by both the emotion and the gender of the speaker (example: female_fear, male_sad, etc.), for a total of 14 classes.
 - The dataset is then split in train, validation and test. For the train dataset some augmentation (addition of noise and shifting of the audio) are applied.
-- Each audio is then transformed to retrieve its MFCC with a number of 40 MFCC features (coefficients) and 194 time frames.
+- Each audio is then transformed to retrieve its MFCC with a number of 40 MFCC features (coefficients) and 267 time frames.
 ### 🔨Building the models
 - The MFCCs are used to train two convolutional neural networks (CNNs), one based on the pretrained ResNet18 and one custom built.
-- The ResNet18 is modified in order to process 1-channel MFCCS, its fully connected layer is substituted by an identity layer, average pooling is applied in order to keep temporal information and finally a classification layer is added. (NOTE: the Network was deep enough that some dimension were automatically suppressed, so in the forward method before the average pooling dimension are restored)
-- The custom model consists of 18 layers: the idea behind it was to decompose the MFFC image along 512 neurons and then slowly decrease the number in order for the network to be able to learn which part of the image where the most important in classifying the emotion, before the classifying layer temporal pooling is applied to keep the temporal information.
+- The ResNet18 is modified in order to process 1-channel MFCCS, its fully connected layer is substituted by an identity layer, average pooling is applied in order to keep temporal information and finally a classification layer is added. (NOTE: the Network was deep enough that some dimension were automatically suppressed, so in the forward method, before the average pooling. dimension are restored).
+- The Custom CNN consists of 18 layers. It begins by expanding the single-channel MFCC input into 512 feature maps using a large convolutional layer. Subsequent layers gradually reduce the number of feature channels, encouraging the network to combine and refine information to identify the most distinctive regions for emotion classification. Batch normalization is applied after each convolution for stability. Temporal structure is preserved using adaptive average pooling before the classification layers. The classifier itself consists of two fully connected layers separated by a dropout layer to mitigate overfitting.
 
 | Model | Number of parameters | Training time | Training epochs |
 |-------|----------------------|---------------|-----------------|
-| Model ResNet18 | ~11.17M | ~40 minutes | 35 |
-| Model Costum CNN | ~10.87M | ~2 h 28 minutes | 100 |
+| ResNet18 | ~11.17M | ~40 minutes | 35 |
+| custom CNN | ~10.87M | ~2 h 28 minutes | 100 |
 
-All the training times refer to Colab's T4 GPU.
+All the training times refer to Colab's T4 GPU.  Despite the longer training time, the Custom CNN achieved superior performance across all evaluation metrics compared to the pretrained ResNet18.
 
 ### ➰Training and Testing 
 - For each epoch of the training loop, both train accuracy and loss and validation accuracy and loss were saved and displayed. Earlystopping and dynamic learning rate were implemented to optimize training time and efficiency.
@@ -56,8 +56,8 @@ All the training times refer to Colab's T4 GPU.
 
 |  Model   | Accuracy | F1 (weighted) | F1 (macro) | Precision (weighted) | Precision (macro) | Recall (weighted) | Recall (macro) |
 |----------|----------|---------------|------------|----------------------|-------------------|-------------------|----------------|
-| Model ResNet18 | 0.760 | 0.755 | 0.748 | 0.757 | 0.751 | 0.760 | 0.751 |
-| Model Custom CNN | 0.844 | 0.841 | 0.836 | 0.854 | 0.852 | 0.844 | 0.836 | 
+| ResNet18 | 0.760 | 0.755 | 0.748 | 0.757 | 0.751 | 0.760 | 0.751 |
+| Custom CNN | 0.844 | 0.841 | 0.836 | 0.854 | 0.852 | 0.844 | 0.836 | 
 
 ## 🛠️Installation
 
@@ -68,7 +68,7 @@ All the training times refer to Colab's T4 GPU.
 
 ### 🔍How to use the code
 
-This project uses a large model file that cannot be stored on GitHub directly, so in order to be able to use the files you must:
+This project uses large model files that cannot be stored on GitHub directly, so in order to be able to use the files you must:
 
 1. ➡️ Download the dataset from this [link](https://www.kaggle.com/datasets/uwrfkaggler/ravdess-emotional-speech-audio).
 2. ➡️ Download the files of this Github repository and add them to your Drive, alongside the dataset.
@@ -85,11 +85,12 @@ All the needed libraries are already imported, if you want to run this code on y
 ## 🚀Launching the Dashboard
 
 You can use the `DashboardEmotion.ipynb` jupiter notebook to launch the already trained models for inference on your .wav files:
-1. ➡️ Download the models from [Google Drive](https://drive.google.com/drive/folders/1ymERLsYVAziu0meQ8aY08ukcASVVTvTR?usp=sharing).
-2. ➡️ Once the models are downloaded, you can open the notebook in Colab, and upload them in the local files:
+1. ➡️ Download the models from my shared [Google Drive folder](https://drive.google.com/drive/folders/1ymERLsYVAziu0meQ8aY08ukcASVVTvTR?usp=sharing).
+2. ➡️ Once the models are downloaded, you can open the `DashboardEmotion.ipynb` notebook in Colab, and upload them in the local files:
    - Click on the directory 🗂️ icon on the left.
    - Click on the first icon of the row below "File" (it looks like a paper sheet with and upwards arrow inside).
-   - Load the .pth files from your computer (it might take a couple of minutes for them to load completely).
-3. ➡️ Run the code: the last cell will output something similar to <NgrokTunnel: "https://02a3543e7ceb.ngrok-free.app" -> "http://localhost:8501">, click on the first link, proceed to the website and you can use the app! \[NOTE: these links are not currently working, you must run the notebook to use the dashboard]
+   - Load the .pth files from your computer.
+   - Wait for the files to load completely (it might take a couple of minutes).
+3. ➡️ Run the code: the last cell will output some links similar to <NgrokTunnel: "https://02a3543e7ceb.ngrok-free.app" -> "http://localhost:8501">, click on the first link, proceed to the website and you can use the app! \[NOTE: these links are not currently working, you must run the notebook to use the dashboard].
 
 
