@@ -1,4 +1,4 @@
-# 😄 Emotion Classifier
+# 😄 EMOTICORE: The Emotion Classifier
 
 <div align="center">
 An accurate emotion classifier for .wav audio files using both state-of-the-arts ResNet18 and a custom build CNN.
