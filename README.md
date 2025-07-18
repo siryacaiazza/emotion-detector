@@ -45,7 +45,7 @@ Each audio name consists of a 7 part numerical identifier, which indicate the au
 
 | Model | Number of parameters | Training time | Training epochs |
 |-------|----------------------|---------------|-----------------|
-| ResNet18 | ~11.17M | ~40 minutes | 35 |
+| ResNet18 | ~11.17M | ~40 minutes | 28 |
 | custom CNN | ~10.87M | ~2 h 28 minutes | 100 |
 
 All the training times refer to Colab's T4 GPU.  Despite the longer training time, the Custom CNN achieved superior performance across all evaluation metrics compared to the pretrained ResNet18.
